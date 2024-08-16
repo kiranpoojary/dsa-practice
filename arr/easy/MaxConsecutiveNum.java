@@ -1,4 +1,4 @@
-package arr;
+package arr.easy;
 
 public class MaxConsecutiveNum {
 

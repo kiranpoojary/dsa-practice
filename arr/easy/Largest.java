@@ -1,4 +1,4 @@
-package arr;
+package arr.easy;
 
 import java.util.ArrayList;
 import java.util.Iterator;

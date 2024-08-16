@@ -1,4 +1,4 @@
-package arr;
+package arr.easy;
 
 public class FindMissing {
     public int findMissed(int[] arr) {
