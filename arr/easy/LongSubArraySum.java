@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LongSubArraySum {
-
+    // retun total subarray length which produce sum
     public int subArraySum(int[] arr, int sum) {
         int sumLen = 0;
         int n = arr.length;
