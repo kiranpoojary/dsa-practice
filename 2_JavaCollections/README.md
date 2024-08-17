@@ -410,6 +410,7 @@ Collections.sort(linkedList);
 
 # Comparator:
 
+- arrList.sort(Comparator.reverseOrder()); // descending; default is ascending
 - Arrays.sort(arr, (a.b)->b-a); //sorts in descending order
 - Defining MySort to use in other sorting methods (example sort arrays based on their first element)
 
