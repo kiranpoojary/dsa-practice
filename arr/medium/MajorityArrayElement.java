@@ -50,12 +50,12 @@ public class MajorityArrayElement {
             else
                 --count;
         }
-        count = 0;
+        int finalMaxCount = 0;
         for (int i : arr) {
             if (i == num)
-                ++count;
+                ++finalMaxCount;
         }
-        if (count > (arr.length / 2))
+        if (finalMaxCount > (arr.length / 2))
             return num;
         else
             return -1;
