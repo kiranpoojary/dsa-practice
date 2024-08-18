@@ -1,6 +1,7 @@
 **[Links]()**
 
-*https://satishkathiriya99.medium.com/java-cheat-sheet-287da6e15e96*
+https://satishkathiriya99.medium.com/java-cheat-sheet-287da6e15e96
+
 
 ### LEGEND
 
@@ -86,8 +87,8 @@ ArrayList is **not Synchronized, **Its equivalent synchronized class is **Vector
 
 #### create arrayList with initial value like below;
 
-```
-List 
+```java
+List<Integer> arr = new ArrayList<>(Arrays.asList(10, 22, 12, 3, 0, 6));
 ```
 
 #### Create with initial capacity
@@ -104,7 +105,51 @@ List list = new ArrayList(50); // Initial capacity
 List<Integer> list = new ArrayList<>(set);
 ```
 
+#### Create 2D ArrayList
+
+##### Step-by-Step Example:
+
+###### **1. Declare the 2D `ArrayList`:**
+
+```java
+ArrayList
+```
+
+###### **2. Initialize the Rows (Inner Lists):**
+
+```java
+for (int i = 0; i < 3; i++) {  // 3 is the number of rows you want
+    twoDArrayList.add(new ArrayList<>());  // Initialize each row
+}
+```
+
+###### **3. Add Elements to the 2D `ArrayList`:**
+
+```java
+twoDArrayList.get(0).add(1); // Adding element 1 to row 0, column 0
+twoDArrayList.get(0).add(2); // Adding element 2 to row 0, column 1
+twoDArrayList.get(1).add(3); // Adding element 3 to row 1, column 0
+twoDArrayList.get(2).add(4); // Adding element 4 to row 2, column 0
+```
+
+###### **4. Print the 2D `ArrayList`:**
+
+```java
+for (ArrayList<Integer> row : twoDArrayList) {
+    System.out.println(row);
+}
+
+//output
+[1, 2]
+[3]
+[4]
+```
+
+
 #### Other creation example
+
+List list = new ArrayList(oldList); // add collection
+
 
 ### **Methods**
 
@@ -177,7 +222,6 @@ If the element is not already present, then this method puts the element and ret
 #### 4. set.clear(); // remove all elements in set
 
 #### 5. set.isEmpty();
-
 
 NOTE: SORTING NOT POSSIBLE IN HASHSET //HashSet stores the elements in random order
 
