@@ -60,7 +60,7 @@ public class LongSubArraySum {
                 maxLength = Math.max(maxLength, right - left + 1);
 
             ++right;
-            if (right < n) {
+            if (right < n) { // comment out if array includes negatives
                 sum += arr[right];
             }
         }
