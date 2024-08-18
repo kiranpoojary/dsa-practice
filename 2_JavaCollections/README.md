@@ -34,31 +34,31 @@ System.out.println(list); // Output: [a, d, c, b]
 
 ### 4. Collections.reverse(coll); // Reverses the order of elements in the list
 
-### 5. **Collections.binarySearch(coll, 4);**
+### 5. Collections.binarySearch(coll, 4);
 
 - **`binarySearch(List<? extends Comparable<? super T>> list, T key)`** : Searches the specified list for the specified object using the binary search algorithm.
 - **`binarySearch(List<? extends T> list, T key, Comparator<? super T> c)`** : Searches the specified list using the binary search algorithm with a comparator.
 
 int index = Collections.binarySearch(numbers, 4); // Performs binary search on a sorted list
 
-### 6. **Finding Minimum and Maximum**
+### 6. Finding Minimum and Maximum
 
 - **`min(Collection<? extends T> coll)`** : Returns the minimum element of the given collection, according to the natural ordering of its elements.
 - **`min(Collection<? extends T> coll, Comparator<? super T> comp)`** : Returns the minimum element according to a comparator.
 - **`max(Collection<? extends T> coll)`** : Returns the maximum element of the given collection, according to the natural ordering.
 - **`max(Collection<? extends T> coll, Comparator<? super T> comp)`** : Returns the maximum element according to a comparator.
 
-### 7. **Collections.frequency(numbers, 3)**
+### 7. Collections.frequency(numbers, 3)
 
 - int freq = Collections.frequency(numbers, 3); // Returns the frequency of the number 3 in the list
 
-### 8. **Unmodifiable Collections**
+### 8. Unmodifiable Collections
 
 - **`unmodifiableList(List<? extends T> list)`** : Returns an unmodifiable view of the specified list.
 - **`unmodifiableSet(Set<? extends T> s)`** : Returns an unmodifiable view of the specified set.
 - **`unmodifiableMap(Map<? extends K, ? extends V> m)`** : Returns an unmodifiable view of the specified map.
 
-### 9. **Collections.copy(destList, srcList);**
+### 9. Collections.copy(destList, srcList);
 
 List `<Integer>` destList = new ArrayList<>(Arrays.asList(new Integer[5]));
 
@@ -68,82 +68,35 @@ Collections.copy(destList, numbers); // Copies elements from numbers to destList
 
 Replaces all occurrences of 3 with 33
 
-### 11. **Disjoint**disjoint(Collection `<?> c1, Collection<?>` c2):
+### 11. Disjoint
+
+disjoint(Collection `<?> c1, Collection<?>` c2):
 
 Returns true if the two specified collections have no elements in common.
 
 boolean isDisjoint = Collections.disjoint(list1, list2); // Checks if list1 and list2 have no elements in common
 
-# ArrayList `<String>` list = new ArrayList<>();
+# Collections Implementations
+
+## ArrayList `<String>` list = new ArrayList<>();
 
 ArrayList is **not Synchronized, **Its equivalent synchronized class is **Vector.**
 
-#### **_Creation_**
+### **_Creation_**
 
-<pre class="nj nk nl nm nn no np nq nr ax ns bj"><br class="Apple-interchange-newline"/>
-List list = new ArrayList(); // Empty Constructor
+#### create arrayList with initial value like below;
+
+```
+List 
+```
+
+#### Create with initial capacity
+
+* When the `ArrayList` is created with an initial capacity, the internal array is filled with `null` references (not zeros or any other default values) for object types. For primitive types (like `int`), if you use a wrapper class like `Integer`, it will also be `null`.
+
+```
 List list = new ArrayList(50); // Initial capacity
-List list = new ArrayList(oldList);// add collection
-</pre>
-
-#### **Methods**
-
-- **list.size();**
-- **list.contains(e);** //returns bool
-- **list.indexOf(e);**
-- **list.lastIndexOf(e);**
-- **list.get(i);**
-- **list.set(i,e);  //rewrite specific index element**
-- **list.add(e);** // Add element
-- **list.add(i,e);**
-- **list.addAll(c)** // Add Collections
-- **list.addAll(i, c)**
-- **list.remove(i);** //returns bool : return at index
-
-eg : arr.remove(3) -> this will remove element at index 3
-
-- **list.remove(e) or list.remove(object);** **//returns bool : This is tricky in case of integer list,pass Integer object**
-
-**NOTE: It will only remove first occurence of the object**
-
-- **list.removeRange(int fromIndex, int toIndex)**
-- **list.removeAll(Collection<?> c) // remove all of the elements that are contained in the specified collection.**
-- **list.toArray();** // convert list to array
-- **Collections.sort(list);** //sorts in Ascending Order
-- **Collections.sort(list, Collections.reverseOrder());** // Descending order
-- **list.clear();** //remove all element from the list
-- **list.replaceAll(UnaryOperator `<E>` operator)**
-
-e.g: list.replaceAll((element) -> element.toUpperCase());
-
-### **copyOnWriteArrayList** — thread-safe version of list
-
-<pre class="nj nk nl nm nn no np nq nr ax ns bj"><br class="Apple-interchange-newline"/>
-List<String> list = new CopyOnWriteArrayList<>();
-</pre>
-
-**_QUICK FACTS:_**
-
-1. List indexes start from ‘0’, just like array index.
-2. List allows “null”
-3. List supports Generics and we should use it whenever possible. Using Generics with List will avoid ClassCastException at runtime.
-
-# HashSet `<Integer>` set= new HashSet<>();
-
-###### Methods
-
-- set.add(e);
-
-If the element is not already present, then this method puts the element and returns `true`. If the element is already present, then it returns `false`.
-
-- set.contains(e);
-- set.remove(e);
-- set.clear(); // remove all elements in set
-- set.isEmpty();
-
-###### **NOTE: SORTING NOT POSSIBLE IN HASHSET** //HashSet stores the elements in random order
-
-**_Then how to sort_**
+```
 
 #### Creating an ArrayList from existing set.
 
@@ -151,13 +104,86 @@ If the element is not already present, then this method puts the element and ret
 List<Integer> list = new ArrayList<>(set);
 ```
 
-#### Sorting the list.
+#### Other creation example
 
-```
-Collections.sort(list);
-```
+### **Methods**
 
-**_QUICK FACTS:_**
+#### 1. list.size();
+
+#### 2. list.contains(e); //returns bool
+
+#### 3. list.indexOf(e);
+
+#### 4. list.lastIndexOf(e);
+
+#### 5. list.get(i);
+
+#### 6. list.set(i,e);  //rewrite specific index element
+
+#### 7. list.add(e); // Add element
+
+#### 8. list.add(i,e);
+
+#### 9. list.addAll(c) // Add Collections
+
+#### 10. list.addAll(i, c)
+
+#### 11. list.remove(i); //returns bool : return at index
+
+eg : arr.remove(3) -> this will remove element at index 3
+
+#### 12. list.remove(e) or list.remove(object);//returns bool :
+
+This is tricky in case of integer list,pass Integer object; NOTE: It will only remove first occurence of the object
+
+#### 13. list.removeRange(int fromIndex, int toIndex)
+
+#### 14. list.removeAll(Collection<?> c) // remove all of the elements that are contained in the specified collection.
+
+#### 15. list.toArray(); // convert list to array
+
+#### 16. list.clear(); //remove all element from the list
+
+#### 17. list.replaceAll(UnaryOperator `<E>` operator)
+
+e.g: list.replaceAll((element) -> element.toUpperCase());
+
+#### 18. CopyOnWriteArrayList
+
+* Its is a thread-safe version of list, thread safe means ability of multiple threads to access and modify a collection concurrently without causing data inconsistency or race conditions
+
+<pre class="nj nk nl nm nn no np nq nr ax ns bj"><br class="Apple-interchange-newline"/>
+List<String> list = new CopyOnWriteArrayList<>();
+</pre>
+
+### **_QUICK FACTS:_**
+
+1. List indexes start from ‘0’, just like array index.
+2. List allows “null”
+3. List supports Generics and we should use it whenever possible. Using Generics with List will avoid ClassCastException at runtime.
+
+## HashSet `<Integer>` set= new HashSet<>();
+
+### Methods
+
+#### 1. set.add(e);
+
+If the element is not already present, then this method puts the element and returns `true`. If the element is already present, then it returns `false`.
+
+#### 2. set.contains(e);
+
+#### 3. set.remove(e);
+
+#### 4. set.clear(); // remove all elements in set
+
+#### 5. set.isEmpty();
+
+
+NOTE: SORTING NOT POSSIBLE IN HASHSET //HashSet stores the elements in random order
+
+_Then how to sort_
+
+### **_QUICK FACTS:_**
 
 1. HashSet does not allow duplicate elements.
 2. HashSet allows only one null element.
@@ -165,7 +191,7 @@ Collections.sort(list);
 4. A HashSet is internally backed by a HashMap .
 5. initial capacity of 16 and a load factor of 0.75
 
-# TreeSet `<Integer>` set= new TreeSet<>();
+## TreeSet `<Integer>` set= new TreeSet<>();
 
 <pre class="nj nk nl nm nn no np nq nr ax ns bj"><br class="Apple-interchange-newline"/>
 TreeSet<Integer> set = new TreeSet<>();
@@ -177,33 +203,42 @@ TreeSet<Integer> set = new TreeSet<>(list); // pass collection
 
 **S**ince all the elements are stored in sorted order in a **TreeSet** , storing elements should either implement the **Comparable** interface or a custom **Comparator** while creating the **TreeSet** .
 
-#### Methods
+### Methods
 
-- set.add(e)
-- set.addAll(Collection c);
-- set.first() //Fetching the first element in TreeSet
-- set.last(); // Fetching the last element in TreeSet
-- set.headSet(40) // Fetching all the elements less than 40 | 40 is not inclusive.
-- set.tailSet(40) // Fetching all the elements greater than 40 | 40 is not inclusive.
-- set.remove(e);
-- set.isEmpty();
-- set.size();
-- set.conatins(e);
+#### 1. set.add(e)
 
-**_QUICK FACTS:_**
+#### 2. set.addAll(Collection c);
+
+#### 3. set.first() //Fetching the first element in TreeSet
+
+#### 4. set.last(); // Fetching the last element in TreeSet
+
+#### 5. set.headSet(40) // Fetching all the elements less than 40 | 40 is not inclusive.
+
+#### 6. set.tailSet(40) // Fetching all the elements greater than 40 | 40 is not inclusive.
+
+#### 7. set.remove(e);
+
+#### 8. set.isEmpty();
+
+#### 9. set.size();
+
+#### 10. set.conatins(e);
+
+### **_QUICK FACTS:_**
 
 1. TreeSet does not allow duplicate elements.
 2. TreeSet class doesn’t allow null elements.
 3. Since elements are stored in a tree, the access and retrieval times are quite fast in a TreeSet .
 4. The elements are stored in ascending order in a TreeSet .
 
-# Difference between a HashSet and TreeSet
+### Difference between a HashSet and TreeSet
 
 1. The HashSet allows one null element, whereas a TreeSet does not allow a null element.
 2. The elements are stored in random order in a HashSet, whereas it is stored in sorted order in TreeSet.
 3. HashSet is faster than Treeset for the operations like add, remove, contains, size, etc.
 
-# HashMap<String, Integer> map= new HashMap<>();
+## HashMap<String, Integer> map= new HashMap<>();
 
 ##### _k = key, v = value_
 
@@ -273,7 +308,7 @@ stockPrice.replaceAll((k,v) -> v + 10);
 4. The keys are stored in random order.
 5. an initial capacity of 16 and **load factor** of 0.75
 
-# TreeMap<String, Integer> treeMap = new TreeMap<>();
+## TreeMap<String, Integer> treeMap = new TreeMap<>();
 
 TreeMap: TreeMap is a class in the `java.utils` package that stores the keys in sorted order. Some of the features of **TreeMap** are:
 
@@ -309,7 +344,7 @@ TreeMap<String, Integer> treeMap2 = new TreeMap<>(reverseMap);
 3. The TreeMap is not thread-safe, although it can be made thread-safe using the `synchronizedMap()` method of the **Collections** class.
 4. Since a **TreeMap** stores the keys in sorted order, the objects that we are storing in the **TreeMap** should either implement the **Comparable** interface or we should pass a **Comparator** while creating the **TreeMap** object.
 
-# PriorityQueue `<Integer>` pq = new PriorityQueue<>()
+## PriorityQueue `<Integer>` pq = new PriorityQueue<>()
 
 //(max elements on top/descending order)
 
@@ -323,13 +358,20 @@ You can define your own comparator separately( named MyComparator for example):
 
 pq = new PriorityQueue<>(new MyComparator());
 
-# String s = “hello”;
+## String s = “hello”;
 
-- s.toCharArray();
-- s.indexOf(substring);
-- s.chatAt(i);
-- s.toUpperCase();
-- s1.equals(s2); //Note to self: DON’T DO “==” AGAIN AND WONDER WHY THE ANSWER IS CONSTANTLY INCORRECT
+### Methods
+
+#### 1. s.toCharArray();
+
+#### 2. s.indexOf(substring);
+
+#### 3. s.chatAt(i);
+
+#### 4.s.toUpperCase();
+
+#### 5. s1.equals(s2); //Note to self: DON’T DO “==” AGAIN AND WONDER WHY THE ANSWER IS CONSTANTLY INCORRECT
+
 - s1.equalsIgnoreCase(s2);
 - s1.compareTo(s2); //returns s1-s2, in dictionary order so a-b returns -1
 - s1.contains(s2);
@@ -338,13 +380,13 @@ pq = new PriorityQueue<>(new MyComparator());
 - s.substring(incl,excl); // incl: inclusive index, included, excl: exclusive index, excluded
 - str_array = s.split(“ “);//return string array separated by spaces. “Hello world” returns [“Hello”,”world”]
 
-# Iterator itr = array_name.iterator(); //or list.iterator()
+## Iterator itr = array_name.iterator(); //or list.iterator()
 
 - itr.hasNext(); //returns bool
 - itr.next();
 - itr.remove(); //removes curr element
 
-# Random r = new Random();
+## Random r = new Random();
 
 - r.nextInt(n); //return a random int from 0 to n
 
@@ -352,7 +394,7 @@ OR
 
 - Math.random(); //returns a random double between 0.0 and 1.0
 
-# Stack `<Integer>` s = new Stack<>();
+## Stack `<Integer>` s = new Stack<>();
 
 - s.push();
 - s.peek();
@@ -360,7 +402,7 @@ OR
 - s.empty(); //returns bool
 - s.size();
 
-# Queue `<Integer>` q = new ArrayList<>();
+## Queue `<Integer>` q = new ArrayList<>();
 
 - q.add(e);
 - q.remove(); //throws exception if empty
@@ -368,7 +410,7 @@ OR
 - q.peek();
 - q.size();
 
-# **LINKED LIST :**
+## LINKED LIST :
 
 //CREATTION
 List `<Integer>` list = new LinkedList `<Integer>`();
@@ -396,7 +438,7 @@ removeLastOccurrence(E element)
 //SORT
 Collections.sort(linkedList);
 
-# Other Useful Methods:
+## Other Useful Methods:
 
 - Character.isDigit(c); //returns bool
 - Character.isAlphabetic(c);
@@ -408,7 +450,7 @@ Collections.sort(linkedList);
 - object.hashCode(); //returns hashcode value for object
 - IntegerList.get(i).intValue(); // to convert Integer to int;
 
-# Comparator:
+## Comparator:
 
 - arrList.sort(Comparator.reverseOrder()); // descending; default is ascending
 - Arrays.sort(arr, (a.b)->b-a); //sorts in descending order
@@ -427,7 +469,7 @@ And then using it like:
 - Arrays.sort(arr, MySort)
 - For ArrayLists, Collections.sort(arraylist, MyArrListSort());
 
-# **Comparable VS Comparator**
+## **Comparable VS Comparator**
 
 the `Collections.sort()` method sorts the given List in ascending order. But the question is, how does the `sort()` method decide which element is smaller and which one is larger?
 

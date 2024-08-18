@@ -65,7 +65,6 @@ public class LongestConsecutive {
                     } else {
                         break;
                     }
-
                 }
                 maxCount = Math.max(maxCount, currCount);
                 currCount = 0;
