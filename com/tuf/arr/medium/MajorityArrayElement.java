@@ -50,6 +50,7 @@ public class MajorityArrayElement {
             else
                 --count;
         }
+        // if an ele occures more than n/2 time it will be store at num at the end
         int finalMaxCount = 0;
         for (int i : arr) {
             if (i == num)
