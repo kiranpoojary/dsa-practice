@@ -35,12 +35,12 @@ public class CountAllSubArraySums {
         return totalSubArrays;
     }
 
-    public int getTotalSubArraySumsOptimal(int[] arr, int sum) {
-        Map<Integer, Integer> mp = new HashMap<>();
+    public int getTotalSubArraySumsOptimal(int[] arr, int sum) { // TC: O(n) SC: O(n)
+        Map<Integer, Integer> mp = new HashMap<>(); // SC: O(n)
         mp.put(0, 1);
         int totalSubArrays = 0;
         int prefixSum = 0;
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) { // TC: O(n)
             prefixSum += arr[i];
             int removePrev = prefixSum - sum;
             if (mp.containsKey(removePrev)) {
@@ -61,10 +61,10 @@ public class CountAllSubArraySums {
     public static void main(String[] args) {
         int[] arr = { 1, 2, 5, 4, -2, 1, -4 };
         CountAllSubArraySums c = new CountAllSubArraySums();
-        // System.out.println("getTotalSubArraySumsBrute : " +
-        // c.getTotalSubArraySumsBrute(arr, 7));
-        // System.out.println("getTotalSubArraySumsBetter : " +
-        // c.getTotalSubArraySumsBetter(arr, 7));
+        System.out.println("getTotalSubArraySumsBrute : " +
+                c.getTotalSubArraySumsBrute(arr, 7));
+        System.out.println("getTotalSubArraySumsBetter : " +
+                c.getTotalSubArraySumsBetter(arr, 7));
         System.out.println("------------ OPTIMAL-----------------");
         System.out.println("getTotalSubArraySumsOptimal  : " + c.getTotalSubArraySumsOptimal(arr, 7));
 
