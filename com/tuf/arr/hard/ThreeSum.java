@@ -1,4 +1,4 @@
-package com.tuf.arr.medium;
+package com.tuf.arr.hard;
 
 import java.util.ArrayList;
 import java.util.Arrays;
