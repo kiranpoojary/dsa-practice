@@ -1,4 +1,4 @@
-package com.tuf.arr.hard;
+package com.tuf.arr.medium;
 
 import java.util.HashMap;
 import java.util.Iterator;
