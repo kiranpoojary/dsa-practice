@@ -49,7 +49,7 @@ public class FourSum {
         return ans;
     }
 
-    public List<ArrayList<Integer>> getFourSumOptimal(int[] arr, int sum) {
+    public List<ArrayList<Integer>> getFourSumOptimal(int[] arr, int sum) { // TC: O(n^3) SC: O(1)
         List<ArrayList<Integer>> ans = new ArrayList<ArrayList<Integer>>();
         ArrayList<Integer> ar = new ArrayList<>();
         for (int ele : arr) {
