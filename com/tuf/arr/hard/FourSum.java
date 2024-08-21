@@ -46,6 +46,48 @@ public class FourSum {
                 }
             }
         }
+        return ans;
+    }
+
+    public List<ArrayList<Integer>> getFourSumOptimal(int[] arr, int sum) {
+        List<ArrayList<Integer>> ans = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> ar = new ArrayList<>();
+        for (int ele : arr) {
+            ar.add(ele);
+        }
+        ar.sort(null);
+        for (int i = 0; i < ar.size(); i++) {
+            arr[i] = ar.get(i);
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            if (i > 0 && arr[i] == arr[i - 1])
+                continue;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (j > (i + 1) && arr[j] == arr[j - 1])
+                    continue;
+                int k = j + 1;
+                int l = arr.length - 1;
+                while (k < l) {
+                    int fSum = arr[i] + arr[j] + arr[k] + arr[l];
+                    if (fSum == sum) {
+                        ArrayList<Integer> fff = new ArrayList<>(Arrays.asList(arr[i], arr[j], arr[k], arr[l]));
+                        ans.add(fff);
+                        ++k;
+                        --l;
+                        while (k < l && arr[k] == arr[k - 1])
+                            k++;
+                        while (k < l && arr[l] == arr[l + 1])
+                            l--;
+                    } else if (fSum < sum) {
+                        ++k;
+                    } else {
+                        --l;
+                    }
+                }
+
+            }
+        }
 
         return ans;
 
@@ -53,8 +95,11 @@ public class FourSum {
 
     public static void main(String[] args) {
         int[] arr = { 1, 0, -1, 0, -2, 2 };
+        int[] arr2 = { 1, 1, 1, 2, 2, 2, 4, 4, 4, 5, 5, };
         FourSum f = new FourSum();
-        System.out.println(f.getFourSumElesBrute(arr, 2));
-        System.out.println(f.getFourSumElesBetter(arr, 2));
+        System.out.println("getFourSumElesBrute   : " + f.getFourSumElesBrute(arr2, 8));
+        System.out.println("getFourSumElesBetter  : " + f.getFourSumElesBetter(arr2, 8));
+        System.out.println("getFourSumOptimal     : " + f.getFourSumOptimal(arr2, 8));
+
     }
 }
