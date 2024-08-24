@@ -4,8 +4,8 @@ public class UpperBound {
     // Smallest index such that arr[index]>k
     public static int getUpperBound(int[] arr, int k) { // TC : O(log2N)
         int low = 0;
-        int high = arr.length;
-        int ans = -1;
+        int high = arr.length - 1;
+        int ans = arr.length;
         while (low <= high) {
             int mid = (low + high) / 2;
             if (arr[mid] > k) {
@@ -21,7 +21,7 @@ public class UpperBound {
 
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3, 3, 5, 8, 8, 10, 10, 11 };
-        System.out.println("Upper Bound   : " + getUpperBound(arr, 4));
+        System.out.println("Upper Bound   : " + getUpperBound(arr, 4)); // if
 
     }
 }

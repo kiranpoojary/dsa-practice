@@ -6,7 +6,7 @@ public class LowerBound {
     public static int getLowerBound(int[] arr, int k) { // TC : O(log2N)
         int low = 0;
         int high = arr.length - 1;
-        int ans = arr[high];
+        int ans = -1;
         while (low <= high) {
             int mid = (low + high) / 2;
             if (arr[mid] >= k) {
@@ -23,7 +23,7 @@ public class LowerBound {
 
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3, 3, 5, 8, 8, 10, 10, 11 };
-        System.out.println("Lower Bound  : " + getLowerBound(arr, 9));
+        System.out.println("Lower Bound  : " + getLowerBound(arr, 4));
 
     }
 }
