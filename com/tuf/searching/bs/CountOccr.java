@@ -52,6 +52,5 @@ public class CountOccr {
     public static void main(String[] args) {
         int[] arr = { 2, 4, 6, 8, 8, 8, 11, 13, 13 };
         System.out.println("Count  : " + getCount(arr, 8));
-
     }
 }
