@@ -2,7 +2,6 @@
 
 https://satishkathiriya99.medium.com/java-cheat-sheet-287da6e15e96
 
-
 ### LEGEND
 
 > **_e = element (Object),_**
@@ -145,11 +144,9 @@ for (ArrayList<Integer> row : twoDArrayList) {
 [4]
 ```
 
-
 #### Other creation example
 
 List list = new ArrayList(oldList); // add collection
-
 
 ### **Methods**
 
