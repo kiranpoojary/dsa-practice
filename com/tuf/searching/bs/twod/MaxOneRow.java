@@ -19,12 +19,11 @@ public class MaxOneRow {
         return ans;
     }
 
-    public static int getMaxOneRow(int[][] arr) {
+    public static int getMaxOneRow(int[][] arr) { // O(n*logn)(base is n means column size) SC: O(1)
         int maxCount = 0;
         int maxOneRowIndex = -1;
-        int m = arr.length;
         int n = arr[0].length;
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) { //
             int firstIndexOfOne = getUpperBound(arr[i], 0);
             int totalOnesCount = (firstIndexOfOne == n) ? 0 : n - firstIndexOfOne;
             if (maxCount < totalOnesCount) {
