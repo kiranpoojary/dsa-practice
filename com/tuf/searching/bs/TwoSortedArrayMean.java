@@ -110,8 +110,8 @@ public class TwoSortedArrayMean {
             int mid2 = left - mid1;
             int l1 = Integer.MIN_VALUE;
             int l2 = Integer.MIN_VALUE;
-            int r1 = Integer.MIN_VALUE;
-            int r2 = Integer.MIN_VALUE;
+            int r1 = Integer.MAX_VALUE;
+            int r2 = Integer.MAX_VALUE;
             if (mid1 < n1)
                 r1 = a[mid1];
             if (mid2 < n2)
@@ -148,8 +148,8 @@ public class TwoSortedArrayMean {
         while (low <= high) {
             int mid1 = (low + high) / 2;
             int mid2 = leftStart - mid1;
-            int r1 = Integer.MIN_VALUE;
-            int r2 = Integer.MIN_VALUE;
+            int r1 = Integer.MAX_VALUE;
+            int r2 = Integer.MAX_VALUE;
             int l1 = Integer.MIN_VALUE;
             int l2 = Integer.MIN_VALUE;
 
