@@ -27,7 +27,7 @@ A binary tree is =a tree data structure in computer science where each node has 
 
 all leaf node should be in same level
 
-#### 4. Bananced BT
+#### 4. Balanced BT
 
 Hight can be Max of logN(n=No. Nodes)
 
@@ -50,7 +50,6 @@ Root->Left->Right
 ##### iii. Post-Order Traversal
 
 Left_>Right->Root
-
 
 #### 2. BFS(Breadth First Search)
 

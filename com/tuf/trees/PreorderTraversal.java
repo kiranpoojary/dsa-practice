@@ -1,7 +1,7 @@
 package com.tuf.trees;
 
 public class PreorderTraversal {
-    Node root = null;
+    Node root;
 
     public Node insertTreeNode(Node currNode, int val) {
         if (root == null) {
@@ -27,7 +27,7 @@ public class PreorderTraversal {
     }
 
     public void initiateInsertNode(int val) {
-        insertTreeNode(this.root, val);
+        insertTreeNode(root, val);
 
     }
 
