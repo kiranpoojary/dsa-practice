@@ -31,18 +31,20 @@ public class PreorderTraversal {
 
     }
 
-    public void startPreOrder() {
+    public void initiatePreOrderTraversal() {
         preOrderTraversal(root);
     }
 
     public static void main(String[] args) {
-        PreorderTraversal p = new PreorderTraversal();
-        p.initiateInsertNode(120);
-        p.initiateInsertNode(10);
-        p.initiateInsertNode(190);
-        p.initiateInsertNode(150);
-        p.initiateInsertNode(50);
+        PreorderTraversal tree = new PreorderTraversal();
+        tree.initiateInsertNode(20);
+        tree.initiateInsertNode(6);
+        tree.initiateInsertNode(40);
+        tree.initiateInsertNode(16);
+        tree.initiateInsertNode(100);
+        tree.initiateInsertNode(27);
+        tree.initiateInsertNode(211);
 
-        p.startPreOrder();
+        tree.initiatePreOrderTraversal();
     }
 }
