@@ -1,7 +1,7 @@
-package com.tuf.trees;
+package com.tuf.trees.binarytree;
 
-public class InorderTraversal {
-    Node root = null;
+public class PostorderTraversal {
+    Node root;
 
     public void insertTreeNode(Node currNode, int val) {
         if (root == null) {
@@ -16,26 +16,24 @@ public class InorderTraversal {
             insertTreeNode(currNode.left, val);
     }
 
-    public void inorderTraversal(Node currNode) {
-        if (currNode == null) {
+    public void postOrderTraversal(Node currNode) {
+        if (currNode == null)
             return;
-        } else {
-            inorderTraversal(currNode.left);
-            System.out.print(currNode.value + " ");
-            inorderTraversal(currNode.right);
-        }
-    }
-
-    public void initiateInOrderTraversal() {
-        inorderTraversal(root);
+        postOrderTraversal(currNode.left);
+        postOrderTraversal(currNode.right);
+        System.out.print(currNode.value + " ");
     }
 
     public void initiateInsertNode(int val) {
         insertTreeNode(root, val);
     }
 
+    public void initiatePostOrderTraversal() {
+        postOrderTraversal(root);
+    }
+
     public static void main(String[] args) {
-        InorderTraversal tree = new InorderTraversal();
+        PostorderTraversal tree = new PostorderTraversal();
         tree.initiateInsertNode(44);
         tree.initiateInsertNode(30);
         tree.initiateInsertNode(144);
@@ -43,8 +41,7 @@ public class InorderTraversal {
         tree.initiateInsertNode(26);
         tree.initiateInsertNode(445);
         tree.initiateInsertNode(48);
+        tree.initiatePostOrderTraversal();
 
-        tree.initiateInOrderTraversal();
     }
-
 }

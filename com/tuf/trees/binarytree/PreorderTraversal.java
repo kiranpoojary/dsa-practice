@@ -1,4 +1,4 @@
-package com.tuf.trees;
+package com.tuf.trees.binarytree;
 
 public class PreorderTraversal {
     Node root;

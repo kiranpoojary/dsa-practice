@@ -1,4 +1,4 @@
-package com.tuf.trees;
+package com.tuf.trees.binarytree;
 
 import java.util.Stack;
 
@@ -46,7 +46,7 @@ public class IterativePostorderTravOne {
         }
     }
 
-    public void iterativePostorderTraversalTwo() {
+    public void iterativePostorderTraversalTwo() { // with one stack only
         Node cur = root;
         Stack<Node> st = new Stack<>();
         while (cur != null || !st.isEmpty()) {

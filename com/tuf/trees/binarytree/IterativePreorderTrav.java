@@ -1,6 +1,8 @@
-package com.tuf.trees;
+package com.tuf.trees.binarytree;
 
-public class PostorderTraversal {
+import java.util.Stack;
+
+public class IterativePreorderTrav {
     Node root;
 
     public void insertTreeNode(Node currNode, int val) {
@@ -16,24 +18,29 @@ public class PostorderTraversal {
             insertTreeNode(currNode.left, val);
     }
 
-    public void postOrderTraversal(Node currNode) {
-        if (currNode == null)
-            return;
-        postOrderTraversal(currNode.left);
-        postOrderTraversal(currNode.right);
-        System.out.print(currNode.value + " ");
-    }
-
     public void initiateInsertNode(int val) {
         insertTreeNode(root, val);
     }
 
-    public void initiatePostOrderTraversal() {
-        postOrderTraversal(root);
+    public void iterativePreorderTraversal() {
+        // NO RECURSION
+        if (root == null)
+            return;
+        Stack<Node> st = new Stack<>();
+        st.push(root);
+        while (!st.isEmpty()) {
+            Node topNode = st.pop();
+            if (topNode.right != null)
+                st.push(topNode.right);
+            if (topNode.left != null)
+                st.push(topNode.left);
+            System.out.print(topNode.value + " ");
+        }
+
     }
 
     public static void main(String[] args) {
-        PostorderTraversal tree = new PostorderTraversal();
+        IterativePreorderTrav tree = new IterativePreorderTrav();
         tree.initiateInsertNode(44);
         tree.initiateInsertNode(30);
         tree.initiateInsertNode(144);
@@ -41,7 +48,8 @@ public class PostorderTraversal {
         tree.initiateInsertNode(26);
         tree.initiateInsertNode(445);
         tree.initiateInsertNode(48);
-        tree.initiatePostOrderTraversal();
+        tree.iterativePreorderTraversal();
 
     }
+
 }

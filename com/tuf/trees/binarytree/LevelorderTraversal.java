@@ -1,4 +1,4 @@
-package com.tuf.trees;
+package com.tuf.trees.binarytree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
