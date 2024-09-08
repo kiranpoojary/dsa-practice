@@ -47,7 +47,7 @@ public class VerticalTraversal {
         root.right.right.right = new Node(9);
     }
 
-    public void getVerticalTraversal() {
+    public void getVerticalTraversal() { // follow level order
         if (root == null)
             return;
         Queue<NodeInfo> pq = new PriorityQueue<>();

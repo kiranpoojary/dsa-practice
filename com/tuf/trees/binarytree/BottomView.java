@@ -1,15 +1,13 @@
 package com.tuf.trees.binarytree;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class TopView {
+public class BottomView {
     Node root;
 
     public void createTree() {
@@ -33,7 +31,7 @@ public class TopView {
         return mp;
     }
 
-    public void getTopViewNode() { // follow level order
+    public void getBottomViewNode() { // follow level order, same as top view but no need to check key !exist
         if (root == null)
             return;
         Map<Integer, Node> mp = new TreeMap<>();
@@ -43,10 +41,7 @@ public class TopView {
             Map<Integer, Node> frontNode = q.poll();
             Set<Integer> keys = frontNode.keySet();
             Integer line = keys.iterator().next(); // always have one key so
-            if (!mp.containsKey(line)) {
-                mp.put(line, frontNode.get(line));
-            }
-
+            mp.put(line, frontNode.get(line));
             if (frontNode.get(line).left != null)
                 q.add(buildMapEntry(line - 1, frontNode.get(line).left));
             if (frontNode.get(line).right != null)
@@ -60,10 +55,9 @@ public class TopView {
     }
 
     public static void main(String[] args) {
-        TopView tree = new TopView();
+        BottomView tree = new BottomView();
         tree.createTree();
-        tree.getTopViewNode();
-
+        tree.getBottomViewNode();
     }
 
 }
