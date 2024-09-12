@@ -22,13 +22,72 @@ public class MaxWidth {
 
         root.left = new Node(3);
         root.left.left = new Node(8);
+        root.left.right = new Node(6);
 
         root.right = new Node(7);
         root.right.right = new Node(4);
+        root.right.left = new Node(40);
 
     }
 
-    public int getMaxWidth(Node root) {
+    public int getMaxWidth(Node root) { // follow level order
+        int maxWidth = 0;
+        if (root == null)
+            return maxWidth;
+        Queue<QueueNode> q = new LinkedList<>();
+
+        QueueNode qn = new QueueNode(root, 0);
+        q.add(qn);
+
+        while (!q.isEmpty()) {
+            QueueNode firstNode = q.poll();
+            QueueNode lastNode = firstNode;
+            while (!q.isEmpty()) {
+                lastNode = q.poll();
+            }
+
+            int firstParentIndex = firstNode.index > 0 ? firstNode.index - 1 : firstNode.index;
+            int secondParentIndex = lastNode.index > 0 ? lastNode.index - 1 : lastNode.index;
+            if (firstNode.node != null && firstNode != lastNode) {
+                if (firstNode.node.left != null) {
+                    int newNodeIndex = q.isEmpty() ? 2 * firstParentIndex + 1 : 2 * secondParentIndex + 2;
+                    QueueNode qn1 = new QueueNode(firstNode.node.left, newNodeIndex);
+                    q.add(qn1);
+                }
+                if (firstNode.node.right != null) {
+                    int newNodeIndex = q.isEmpty() ? 2 * firstParentIndex + 1 : 2 * secondParentIndex + 2;
+                    QueueNode qn1 = new QueueNode(firstNode.node.right, newNodeIndex);
+                    q.add(qn1);
+                }
+                if (lastNode.node.left != null) {
+                    int newNodeIndex = q.isEmpty() ? 2 * firstParentIndex + 1 : 2 * secondParentIndex + 2;
+                    QueueNode qn1 = new QueueNode(lastNode.node.left, newNodeIndex);
+                    q.add(qn1);
+                }
+                if (lastNode.node.right != null) {
+                    int newNodeIndex = q.isEmpty() ? 2 * firstParentIndex + 1 : 2 * secondParentIndex + 2;
+                    QueueNode qn1 = new QueueNode(lastNode.node.right, newNodeIndex);
+                    q.add(qn1);
+                }
+            } else if (firstNode.node != null) {
+                if (firstNode.node.left != null) {
+                    int newNodeIndex = q.isEmpty() ? 2 * firstParentIndex + 1 : 2 * secondParentIndex + 2;
+                    QueueNode qn1 = new QueueNode(firstNode.node.left, newNodeIndex);
+                    q.add(qn1);
+                }
+                if (firstNode.node.right != null) {
+                    int newNodeIndex = q.isEmpty() ? 2 * firstParentIndex + 1 : 2 * secondParentIndex + 2;
+                    QueueNode qn1 = new QueueNode(firstNode.node.right, newNodeIndex);
+                    q.add(qn1);
+                }
+            }
+            int width = lastNode.index - firstNode.index + 1;
+            maxWidth = Math.max(maxWidth, width);
+        }
+        return maxWidth;
+    }
+
+    public int getMaxWidthOverflow(Node root) {
         if (root == null)
             return 0;
 
@@ -61,7 +120,8 @@ public class MaxWidth {
     public static void main(String[] args) {
         MaxWidth tree = new MaxWidth();
         tree.createTree();
-        System.out.println("Max Width  : " + tree.getMaxWidth(tree.root));
+        System.out.println("Max Width no overflow  : " + tree.getMaxWidth(tree.root));
+        System.out.println("Max Width  overflow    : " + tree.getMaxWidthOverflow(tree.root));
 
     }
 
