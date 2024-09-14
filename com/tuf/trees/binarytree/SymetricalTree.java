@@ -1,7 +1,5 @@
 package com.tuf.trees.binarytree;
 
-import java.util.ArrayList;
-
 public class SymetricalTree {
     Node root;
 

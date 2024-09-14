@@ -1,10 +1,8 @@
 package com.tuf.trees.binarytree;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 import java.util.TreeMap;
@@ -53,9 +51,9 @@ public class TopView {
                 q.add(buildMapEntry(line + 1, frontNode.get(line).right));
         }
         for (Map.Entry<Integer, Node> entry : mp.entrySet()) {
-            Integer key = entry.getKey();
             Node node = entry.getValue();
             System.out.print(node.value + " ");
+
         }
     }
 
