@@ -1,10 +1,5 @@
 package com.tuf.trees.bst;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
-import com.tuf.trees.binarytree.LevelorderTraversal;
-
 public class InsertNewNode {
     Node root;
 
