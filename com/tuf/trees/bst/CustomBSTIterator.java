@@ -3,12 +3,12 @@ package com.tuf.trees.bst;
 import java.util.LinkedList;
 import java.util.Stack;
 
-public class BSTIterator {
+public class CustomBSTIterator {
     // IMPLEMENT BST InOrder Iterator
     Node root;
     Stack<Node> st = new Stack<>();
 
-    public BSTIterator() {
+    public CustomBSTIterator() {
         this.createTree();
         this.st.add(root);
         this.pushAll(root);
@@ -50,7 +50,7 @@ public class BSTIterator {
     }
 
     public static void main(String[] args) {
-        BSTIterator tree = new BSTIterator();
+        CustomBSTIterator tree = new CustomBSTIterator();
         System.out.println(tree.hasNext());
         System.out.println(tree.nexNode().value);
         System.out.println(tree.nexNode().value);
