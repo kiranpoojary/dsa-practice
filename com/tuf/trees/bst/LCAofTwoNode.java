@@ -37,6 +37,5 @@ public class LCAofTwoNode {
         tree.createTree();
         Node lcaNode = tree.getLCA(tree.root, tree.root.left.left, tree.root.left.right.left);
         System.out.println("LCA Node Value    :" + lcaNode.value);
-
     }
 }

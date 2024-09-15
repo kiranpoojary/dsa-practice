@@ -3,6 +3,8 @@ package com.tuf.trees.bst;
 import javax.swing.tree.TreeNode;
 
 public class KthLargeSmall {
+    // NOTE: Inorder traversal of BST is always sorted, u can do in order traversal
+    // and pick kth node
     Node root;
 
     public void createTree() {
