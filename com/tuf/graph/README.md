@@ -49,4 +49,11 @@ Preorder, or traversing all the way down a branch before moving on to the next. 
 
 Level-order, or traversing layer by layer. Visit a node, then visit **all** of its children before moving on to grandchildren. You can start BFS in a graph at any node you want. This node that you choose to start at is sometimes called the * search key* . You can visit any adjacent nodes (children) in any order that you like.
 
-However, unlike trees, graphs may contain cycles, meaning a node may be connected to a node that was already visited. To avoid processing a node more than once, you can use a boolean visited array.
+However, unlike trees, graphs may contain cycles, meaning a node may be connected to a node that was already visited. To avoid processing a node more than once, **you can use a boolean VISITED ARRAY**.
+
+
+# Connected Components
+
+Multiple disconneected sub graph called graph components
+
+A connected component is  a maximal connected subgraph of an undirected graph . Each vertex belongs to exactly one connected component, as does each edge. A graph is connected if and only if it has exactly one connected component. The strong components are the maximal strongly connected subgraphs of a directed graph.
