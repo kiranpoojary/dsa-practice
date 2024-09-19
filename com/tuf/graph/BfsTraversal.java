@@ -8,6 +8,7 @@ import java.util.Queue;
 public class BfsTraversal {
 
     public static ArrayList<Integer> startGraphBFS(int totalNodes, ArrayList<ArrayList<Integer>> adj) {
+        // TC: O(n)+O(2E)
         boolean[] visitedNodes = new boolean[totalNodes + 1];
         Queue<Integer> q = new LinkedList<>();
         ArrayList<Integer> traversal = new ArrayList<>();
@@ -39,6 +40,6 @@ public class BfsTraversal {
         adj.add(new ArrayList<>(Arrays.asList(8, 1, 7)));
         adj.add(new ArrayList<>(Arrays.asList(9, 5)));
         adj.add(new ArrayList<>(Arrays.asList(10, 7)));
-        System.out.println(BfsTraversal.startGraphBFS(10, adj));
+        System.out.println("BfsTraversal    : " + BfsTraversal.startGraphBFS(10, adj));
     }
 }
