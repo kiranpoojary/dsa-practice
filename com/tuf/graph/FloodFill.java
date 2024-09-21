@@ -33,15 +33,18 @@ public class FloodFill {
                 { 1, 0, 2, 0 },
                 { 1, 1, 2, 0 },
         };
+        System.out.println("Original Image");
         for (int i = 0; i < image.length; i++) {
             for (int j = 0; j < image[0].length; j++) {
                 System.out.print(image[i][j] + " ");
             }
             System.out.println();
         }
-        System.out.println();
+
         startFloodFill(image, 2, 0, 4);
-        System.out.println();
+
+        System.out.print("\nfill from pixel 2,0 with color 4");
+        System.out.println("\nFlood Filled Image");
 
         for (int i = 0; i < image.length; i++) {
             for (int j = 0; j < image[0].length; j++) {
