@@ -10,7 +10,7 @@ public class FloodFill {
         for (int i = 0; i < 4; i++) {
             int neighborRow = currRow + neighbourRowSetter[i];
             int neighborCol = currCol + neighbourColSetter[i];
-            if (neighborRow >= 0 && neighborRow < image.length && neighborCol >= 0 && neighborCol <= image[0].length
+            if (neighborRow >= 0 && neighborRow < image.length && neighborCol >= 0 && neighborCol < image[0].length
                     && imageCopy[neighborRow][neighborCol] == initialColor) {
                 dfsFloodFIll(image, imageCopy, neighborRow, neighborCol, fillColor);
             }
