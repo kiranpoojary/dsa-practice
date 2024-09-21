@@ -4,6 +4,7 @@ import java.util.*;
 
 public class CountProvinces {
 
+    // TC:O(n)+O(V+2E) SC: O(n)+O(n)
     public static int countProvinces(int totalNodes, ArrayList<ArrayList<Integer>> adj) {
         ArrayList<Integer> dfs = new ArrayList<>();
         boolean[] visited = new boolean[totalNodes + 1];
