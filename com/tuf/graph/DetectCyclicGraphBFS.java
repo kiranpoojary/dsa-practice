@@ -19,9 +19,9 @@ class Pair {
 
 }
 
-public class DetectCyclicGraph {
+public class DetectCyclicGraphBFS {
 
-    public static boolean hasCycle(int startNode, ArrayList<ArrayList<Integer>> adjList, boolean[] visited) {
+    public static boolean hasCycleBFS(int startNode, ArrayList<ArrayList<Integer>> adjList, boolean[] visited) {
         boolean hasCycle = false;
         Queue<Pair> q = new LinkedList<>();// <node and parent>
         q.add(new Pair(startNode, -1));// <node and parent>
@@ -48,7 +48,7 @@ public class DetectCyclicGraph {
 
     public static boolean checkCycleExist(ArrayList<ArrayList<Integer>> adj, int startNode) {
         boolean[] visited = new boolean[adj.size()];
-        return hasCycle(startNode, adj, visited);
+        return hasCycleBFS(startNode, adj, visited);
     }
 
     public static void main(String[] args) {
