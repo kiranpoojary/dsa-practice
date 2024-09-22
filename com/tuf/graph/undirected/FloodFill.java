@@ -1,4 +1,4 @@
-package com.tuf.graph;
+package com.tuf.graph.undirected;
 
 public class FloodFill {
 

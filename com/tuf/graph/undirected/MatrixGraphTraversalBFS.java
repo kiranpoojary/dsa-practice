@@ -1,4 +1,4 @@
-package com.tuf.graph;
+package com.tuf.graph.undirected;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
