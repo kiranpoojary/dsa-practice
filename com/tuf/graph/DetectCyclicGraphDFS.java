@@ -15,7 +15,7 @@ public class DetectCyclicGraphDFS {
             if (!visited[n]) {
                 if (hasCycleDFS(n, currNode, adjList, visited))
                     return true;
-            } else if (currNodeParent != n) {
+            } else if (currNodeParent != n) {// not visited from currNode way
                 return true;
             }
         }
