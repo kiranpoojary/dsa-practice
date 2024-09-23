@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class CheckBipartiteGraphBFS {
+    // bipatite means : each adj node should painted diff color
     // color each node of graph with 2 color options
     // adjecent should not have same color
     // intuition: if liner graph it is bipartite
