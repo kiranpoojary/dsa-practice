@@ -7,7 +7,7 @@ import java.util.Set;
 public class CountIdenticalIslands {
 
     public static ArrayList<Integer> countDFS(int[][] mat, boolean[][] visited, int row, int col,
-            ArrayList identicalImage, int baseRow, int baseCol) {
+            ArrayList<Integer> identicalImage, int baseRow, int baseCol) {
 
         int m = mat.length;
         int n = mat[0].length;
@@ -47,7 +47,7 @@ public class CountIdenticalIslands {
             }
         }
 
-        System.out.println("Unique island Image   :" + uniques);
+        System.out.println("Unique island Images   :" + uniques);
         return uniques.size();
     }
 
