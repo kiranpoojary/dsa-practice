@@ -7,7 +7,7 @@ import java.util.Set;
 public class CountIdenticalIslands {
 
     public static ArrayList<Integer> countDFS(int[][] mat, boolean[][] visited, int row, int col,
-            ArrayList nodes, int baseRow, int baseCol) {
+            ArrayList identicalImage, int baseRow, int baseCol) {
 
         int m = mat.length;
         int n = mat[0].length;
@@ -16,8 +16,8 @@ public class CountIdenticalIslands {
             int ii = baseRow - row;
             int jj = baseCol - col;
             // System.out.println(baseRow + "-" + baseCol);
-            nodes.add(ii);
-            nodes.add(jj);
+            identicalImage.add(ii);
+            identicalImage.add(jj);
             int[] rowSlider = { 0, 1, 0, -1 };
             int[] colSlider = { 1, 0, -1, 0 };
             for (int i = 0; i < 4; i++) {
@@ -26,11 +26,11 @@ public class CountIdenticalIslands {
                 if (neighborRow >= 0 && neighborRow < m && neighborCol >= 0 && neighborCol < n
                         && !visited[neighborRow][neighborCol] && !visited[neighborRow][neighborCol]
                         && mat[neighborRow][neighborCol] == 1) {
-                    countDFS(mat, visited, neighborRow, neighborCol, nodes, baseRow, baseCol);
+                    countDFS(mat, visited, neighborRow, neighborCol, identicalImage, baseRow, baseCol);
                 }
             }
         }
-        return nodes;
+        return identicalImage;
     }
 
     public static int countIdenticalIslands(int[][] matrix) {
@@ -40,14 +40,14 @@ public class CountIdenticalIslands {
         boolean[][] visited = new boolean[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                ArrayList<Integer> arr = new ArrayList<>();
-                ArrayList<Integer> visitedNode = countDFS(matrix, visited, i, j, arr, i, j);
+                ArrayList<Integer> identicalImage = new ArrayList<>();
+                ArrayList<Integer> visitedNode = countDFS(matrix, visited, i, j, identicalImage, i, j);
                 if (visitedNode.size() > 0)
                     uniques.add(visitedNode);
             }
         }
 
-        System.out.println(uniques);
+        System.out.println("Unique island Image   :" + uniques);
         return uniques.size();
     }
 
