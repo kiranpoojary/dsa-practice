@@ -20,7 +20,7 @@ public class CheckCycle {
                 return true;
         }
 
-        pathVisited[startNode] = false;
+        pathVisited[startNode] = false; // reset path visit if cycle not found
         return false;
     }
 
@@ -40,7 +40,7 @@ public class CheckCycle {
 
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
-        adjList.add(new ArrayList<>(Arrays.asList())); // 0 index
+        adjList.add(new ArrayList<>(Arrays.asList()));// 0 index
         adjList.add(new ArrayList<>(Arrays.asList(1, 2)));
         adjList.add(new ArrayList<>(Arrays.asList(2, 3)));
         adjList.add(new ArrayList<>(Arrays.asList(3, 4, 7)));
