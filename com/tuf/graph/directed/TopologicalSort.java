@@ -5,7 +5,7 @@ import java.util.*;
 public class TopologicalSort {
     // Topological sort :- linear ordering of vertices such that if there is an edge
     // btw u and v, u always appears before v in that ordering
-    // :- works with directed acyclic graph only
+    // :- works with directed acyclic graph(DAG) only
 
     public static Stack<Integer> dfs(ArrayList<ArrayList<Integer>> adjList, boolean[] visited, int startNode,
             Stack<Integer> st) {
