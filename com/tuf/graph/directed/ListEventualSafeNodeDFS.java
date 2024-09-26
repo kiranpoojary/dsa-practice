@@ -65,7 +65,7 @@ public class ListEventualSafeNodeDFS {
         adjList.add(new ArrayList<>(Arrays.asList(9, 10)));
         adjList.add(new ArrayList<>(Arrays.asList(10, 8)));
         adjList.add(new ArrayList<>(Arrays.asList(11, 9)));
-        System.out.println("Is cyclic directed graph-1     :" + getSafeNodes(adjList));
+        System.out.println("safe node in the graph are     :" + getSafeNodes(adjList));
     }
 
 }
