@@ -4,6 +4,8 @@ import java.util.*;
 import java.io.*;
 
 class shortestPathADG {
+    // step1: get topo sort order
+    // step2: take node from stack one by one and relax edges with distance arr
 
     public static void main(String[] args) throws IOException {
         int n = 6, m = 7;
@@ -30,8 +32,6 @@ class Pair {
 class Solution {
     private void topoSort(int node, ArrayList<ArrayList<Pair>> adj,
             int vis[], Stack<Integer> st) {
-        // This is the function to implement Topological sort.
-
         vis[node] = 1;
         for (int i = 0; i < adj.get(node).size(); i++) {
             int v = adj.get(node).get(i).first;
@@ -48,8 +48,7 @@ class Solution {
             ArrayList<Pair> temp = new ArrayList<Pair>();
             adj.add(temp);
         }
-        // We create a graph first in the form of an adjacency list.
-
+        // We create a graph in the form of an adjacency list.
         for (int i = 0; i < M; i++) {
             int u = edges[i][0];
             int v = edges[i][1];
@@ -59,7 +58,6 @@ class Solution {
         int vis[] = new int[N];
         // Now, we perform topo sort using DFS technique
         // and store the result in the stack st.
-
         Stack<Integer> st = new Stack<>();
         for (int i = 0; i < N; i++) {
             if (vis[i] == 0) {
