@@ -6,6 +6,7 @@ import java.io.*;
 class shortestPathADG {
     // step1: get topo sort order
     // step2: take node from stack one by one and relax edges with distance arr
+    // TC:
 
     public static void main(String[] args) throws IOException {
         int n = 6, m = 7;
