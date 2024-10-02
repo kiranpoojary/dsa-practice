@@ -400,45 +400,56 @@ You can define your own comparator separately( named MyComparator for example):
 pq = new PriorityQueue<>(new MyComparator());
 
 
+## Stack `<Integer>` s = new Stack<>();
+
+### Methods
+
+- s.push();
+- s.peek();
+- s.pop();
+- s.empty(); //returns bool
+- s.size();
+
+
 ## String s = “hello”;
 
 ### Methods
 
 1. **`length()`** – Returns the length of the string.
-1. **`charAt(int index)`** – Returns the character at the specified index.
-1. **`substring(int beginIndex)`** – Returns a substring starting from the given index.
-1. **`substring(int beginIndex, int endIndex)`** – Returns a substring between the specified indices.
-1. **`equals(Object another)`** – Compares two strings for equality.
-1. **`equalsIgnoreCase(String another)`** – Compares two strings, ignoring case differences.
-1. **`toLowerCase()`** – Converts all characters to lowercase.
-1. **`toUpperCase()`** – Converts all characters to uppercase.
-1. **`trim()`** – Removes leading and trailing whitespace.
-1. **`replace(CharSequence target, CharSequence replacement)`** – Replaces occurrences of a substring with another substring.
-1. **`replaceFirst(String regex, String replacement)`** – Replaces the first substring that matches a regular expression.
-1. **`replaceAll(String regex, String replacement)`** – Replaces all substrings matching a regular expression.
-1. **`split(String regex)`** – Splits the string around matches of a regular expression.
-1. **`indexOf(String str)`** – Returns the index of the first occurrence of a substring.
-1. **`lastIndexOf(String str)`** – Returns the index of the last occurrence of a substring.
-1. **`startsWith(String prefix)`** – Checks if the string starts with the specified prefix.
-1. **`endsWith(String suffix)`** – Checks if the string ends with the specified suffix.
-1. **`isEmpty()`** – Checks if the string is empty.
-1. **`compareTo(String another)`** – Compares two strings lexicographically.
-1. **`contains(CharSequence seq)`** – Checks if the string contains a specified sequence of characters.
-1. **`matches(String regex)`** – Checks if the string matches a regular expression.
-1. **`concat(String str)`** – Concatenates the specified string to the end of this string.
-1. **`toCharArray()`** – Converts the string into a character array.
-1. **`getBytes()`** – Encodes the string into a sequence of bytes.
-1. **`join(CharSequence delimiter, CharSequence... elements)`** – Joins elements with a specified delimiter.
-1. **`valueOf(Object obj)`** – Returns the string representation of the specified object.
-1. **`intern()`** – Returns a canonical representation of the string.
-1. **`format(String format, Object... args)`** – Returns a formatted string.
-1. **`regionMatches()`** – Compares a specific region of two strings.
-1. **`codePointAt(int index)`** – Returns the Unicode code point of the character at the specified index.
-1. **`codePointBefore(int index)`** – Returns the Unicode code point before the specified index.
-1. **`codePointCount(int beginIndex, int endIndex)`** – Returns the number of Unicode code points in a specified range.
-1. **`offsetByCodePoints(int index, int codePointOffset)`** – Returns the index within the string offset by a code point.
-1. **`getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)`** – Copies characters from the string into a character array.
-1. **`subSequence(int beginIndex, int endIndex)`** – Returns a new character sequence that is a subsequence of this sequence.
+2. **`charAt(int index)`** – Returns the character at the specified index.
+3. **`substring(int beginIndex)`** – Returns a substring starting from the given index.
+4. **`substring(int beginIndex, int endIndex)`** – Returns a substring between the specified indices.
+5. **`equals(Object another)`** – Compares two strings for equality.
+6. **`equalsIgnoreCase(String another)`** – Compares two strings, ignoring case differences.
+7. **`toLowerCase()`** – Converts all characters to lowercase.
+8. **`toUpperCase()`** – Converts all characters to uppercase.
+9. **`trim()`** – Removes leading and trailing whitespace.
+10. **`replace(CharSequence target, CharSequence replacement)`** – Replaces occurrences of a substring with another substring.
+11. **`replaceFirst(String regex, String replacement)`** – Replaces the first substring that matches a regular expression.
+12. **`replaceAll(String regex, String replacement)`** – Replaces all substrings matching a regular expression.
+13. **`split(String regex)`** – Splits the string around matches of a regular expression.
+14. **`indexOf(String str)`** – Returns the index of the first occurrence of a substring.
+15. **`lastIndexOf(String str)`** – Returns the index of the last occurrence of a substring.
+16. **`startsWith(String prefix)`** – Checks if the string starts with the specified prefix.
+17. **`endsWith(String suffix)`** – Checks if the string ends with the specified suffix.
+18. **`isEmpty()`** – Checks if the string is empty.
+19. **`compareTo(String another)`** – Compares two strings lexicographically.
+20. **`contains(CharSequence seq)`** – Checks if the string contains a specified sequence of characters.
+21. **`matches(String regex)`** – Checks if the string matches a regular expression.
+22. **`concat(String str)`** – Concatenates the specified string to the end of this string.
+23. **`toCharArray()`** – Converts the string into a character array.
+24. **`getBytes()`** – Encodes the string into a sequence of bytes.
+25. **`join(CharSequence delimiter, CharSequence... elements)`** – Joins elements with a specified delimiter.
+26. **`valueOf(Object obj)`** – Returns the string representation of the specified object.
+27. **`intern()`** – Returns a canonical representation of the string.
+28. **`format(String format, Object... args)`** – Returns a formatted string.
+29. **`regionMatches()`** – Compares a specific region of two strings.
+30. **`codePointAt(int index)`** – Returns the Unicode code point of the character at the specified index.
+31. **`codePointBefore(int index)`** – Returns the Unicode code point before the specified index.
+32. **`codePointCount(int beginIndex, int endIndex)`** – Returns the number of Unicode code points in a specified range.
+33. **`offsetByCodePoints(int index, int codePointOffset)`** – Returns the index within the string offset by a code point.
+34. **`getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)`** – Copies characters from the string into a character array.
+35. **`subSequence(int beginIndex, int endIndex)`** – Returns a new character sequence that is a subsequence of this sequence.
 
 ## Iterator itr = array_name.iterator(); //or list.iterator()
 
@@ -454,15 +465,9 @@ OR
 
 - Math.random(); //returns a random double between 0.0 and 1.0
 
-## Stack `<Integer>` s = new Stack<>();
-
-- s.push();
-- s.peek();
-- s.pop();
-- s.empty(); //returns bool
-- s.size();
-
 ## Queue `<Integer>` q = new ArrayList<>();
+
+### Methods
 
 - **q.size():**
 - **q.isEmpty():**
@@ -474,6 +479,8 @@ OR
 - ******peek()**** : Returns the element at the front of the queue without removing it. If the queue is empty, it returns null.**
 
 ## LINKED LIST :
+
+### Methods
 
 //CREATTION
 List `<Integer>` list = new LinkedList `<Integer>`();
@@ -501,6 +508,7 @@ removeLastOccurrence(E element)
 //SORT
 Collections.sort(linkedList);
 
+
 ## Other Useful Methods:
 
 - Character.isDigit(c); //returns bool
@@ -514,6 +522,8 @@ Collections.sort(linkedList);
 - IntegerList.get(i).intValue(); // to convert Integer to int;
 
 ## Comparator:
+
+### Methods
 
 - arrList.sort(Comparator.reverseOrder()); // descending; default is ascending
 - Arrays.sort(arr, (a.b)->b-a); //sorts in descending order
