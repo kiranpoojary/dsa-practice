@@ -5,13 +5,15 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * InnerShortestPathUAG
- */
+class Pair {
+    int first;
+    int second;
 
-/**
- * InnerShortestPathUAG
- */
+    public Pair(int str, int step) {
+        this.first = str;
+        this.second = step;
+    }
+}
 
 public class ShortestPathUAG {
     // each path has unit 1 weight
