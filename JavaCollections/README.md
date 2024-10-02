@@ -385,20 +385,6 @@ TreeMap<String, Integer> treeMap2 = new TreeMap<>(reverseMap);
 3. The TreeMap is not thread-safe, although it can be made thread-safe using the `synchronizedMap()` method of the **Collections** class.
 4. Since a **TreeMap** stores the keys in sorted order, the objects that we are storing in the **TreeMap** should either implement the **Comparable** interface or we should pass a **Comparator** while creating the **TreeMap** object.
 
-## PriorityQueue `<Integer>` pq = new PriorityQueue<>()
-
-//(max elements on top/descending order)
-
-#### PriorityQueue `<Integer>` maxHeap = new PriorityQueue `<Integer>`((a,b) -> b-a); \*\*
-
-Let’s say you want your own comparator, example, the pq has keys of a hashmap as it’s elements, and they need to be arranged according to their values in a hashmap.
-
-pq = new PriorityQueue<>((a,b) -> map.get(a)-map.get(b));
-
-You can define your own comparator separately( named MyComparator for example):
-
-pq = new PriorityQueue<>(new MyComparator());
-
 ## Stack `<Integer>` s = new Stack<>();
 
 ### Methods
@@ -421,6 +407,20 @@ pq = new PriorityQueue<>(new MyComparator());
 - ******poll()**** : Removes and returns the element at the front of the queue. If the queue is empty, it returns null.**
 - ******element()**** : Returns the element at the front of the queue without removing it. If the queue is empty, it throws an exception.**
 - ******peek()**** : Returns the element at the front of the queue without removing it. If the queue is empty, it returns null.**
+
+## PriorityQueue `<Integer>` pq = new PriorityQueue<>()
+
+//(max elements on top/descending order)
+
+#### PriorityQueue `<Integer>` maxHeap = new PriorityQueue `<Integer>`((a,b) -> b-a); \*\*
+
+Let’s say you want your own comparator, example, the pq has keys of a hashmap as it’s elements, and they need to be arranged according to their values in a hashmap.
+
+pq = new PriorityQueue<>((a,b) -> map.get(a)-map.get(b));
+
+You can define your own comparator separately( named MyComparator for example):
+
+pq = new PriorityQueue<>(new MyComparator());
 
 ## LINKED LIST :
 
