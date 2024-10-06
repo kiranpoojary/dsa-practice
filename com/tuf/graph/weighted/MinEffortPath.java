@@ -21,7 +21,7 @@ public class MinEffortPath {
         }
         PriorityQueue<ArrayList<Integer>> q = new PriorityQueue<>((a, b) -> a.get(0) - b.get(0));
         distance[0][0] = 0;
-        q.add(new ArrayList<>(Arrays.asList(0, 0, 0)));
+        q.add(new ArrayList<>(Arrays.asList(0, 0, 0)));// dis, row, col
         while (!q.isEmpty()) {
             int oldEffort = q.peek().get(0);
             int row = q.peek().get(1);
