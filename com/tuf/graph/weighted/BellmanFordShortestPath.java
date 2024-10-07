@@ -65,6 +65,18 @@ public class BellmanFordShortestPath {
                 .println("total reachable path         :"
                         + BellmanFordShortestPath.getShortestDistance(graphEdgeInfo, nodeCount));
 
+        System.out.println("---------------------------");
+        int[][] graphEdgeInfo2 = { // order not matter
+                { 0, 1, -2 },
+                { 1, 2, -1 },
+                { 2, 0, 2 },
+
+        };
+
+        System.out
+                .println("total reachable path         :"
+                        + BellmanFordShortestPath.getShortestDistance(graphEdgeInfo2, 3));
+
     }
 
 }
