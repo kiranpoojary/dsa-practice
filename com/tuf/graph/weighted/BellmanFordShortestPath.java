@@ -2,7 +2,6 @@ package com.tuf.graph.weighted;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.PriorityQueue;
 
 public class BellmanFordShortestPath {
     // https://www.youtube.com/watch?v=0vVofAhAYjc&list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz&index=168
@@ -12,6 +11,7 @@ public class BellmanFordShortestPath {
     // Why N-1:in each iteration shortest path to node is clacul except sourc(-1)
     // detect negative cycle: if you do nth relaxation(iteration) if value reduce
     // then -ve cycle exist
+    // it's not possible to find a shortest path in a graph with a negative cycle
 
     public static ArrayList<Integer> getShortestDistance(int[][] graph, int nodeCount) {
         int[] distance = new int[nodeCount];
