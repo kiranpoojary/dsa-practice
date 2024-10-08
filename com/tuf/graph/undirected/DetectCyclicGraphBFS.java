@@ -5,14 +5,11 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * Pair
- */
-class Pair {
+class PairDetectCyCleBSF {
     int first;
     int second;
 
-    public Pair(int a, int b) {
+    public PairDetectCyCleBSF(int a, int b) {
         this.first = a;
         this.second = b;
     }
@@ -23,11 +20,11 @@ public class DetectCyclicGraphBFS {
 
     public static boolean hasCycleBFS(int startNode, ArrayList<ArrayList<Integer>> adjList, boolean[] visited) {
         boolean hasCycle = false;
-        Queue<Pair> q = new LinkedList<>();// <node and parent>
-        q.add(new Pair(startNode, -1));// <node and parent>
+        Queue<PairDetectCyCleBSF> q = new LinkedList<>();// <node and parent>
+        q.add(new PairDetectCyCleBSF(startNode, -1));// <node and parent>
         visited[startNode] = true;
         while (!hasCycle && !q.isEmpty()) {
-            Pair node = q.poll();
+            PairDetectCyCleBSF node = q.poll();
             int currNode = node.first;
             int currNodeParent = node.second;
             for (Integer n : adjList.get(currNode)) {
@@ -35,7 +32,7 @@ public class DetectCyclicGraphBFS {
                     continue;
                 if (!visited[n]) {
                     visited[n] = true;
-                    q.add(new Pair(n, currNode));
+                    q.add(new PairDetectCyCleBSF(n, currNode));
                 } else if (currNodeParent != n) {
                     hasCycle = true;
                     break;
