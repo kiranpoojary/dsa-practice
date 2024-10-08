@@ -16,55 +16,51 @@ class PairSmallNeighbour {
 }
 
 public class SmallestNumberOfNeighbourCityDijkstra {
+    // use floyd warshall to generate shortest distance matrix
+    // then:-
     public static int findCity(int n, int m, int[][] edges, int distanceThreshold) {
-        List<List<PairSmallNeighbour>> adjList = new ArrayList<>(); // sc -> V^2
-        for (int i = 0; i < n; i++)
-            adjList.add(new ArrayList<>());
-        for (int[] edge : edges) {
-            // bidirectional
-            adjList.get(edge[0]).add(new PairSmallNeighbour(edge[1], edge[2]));
-            adjList.get(edge[1]).add(new PairSmallNeighbour(edge[0], edge[2]));
-        }
-
-        PriorityQueue<PairSmallNeighbour> pq = new PriorityQueue<>((a, b) -> a.d - b.d); // sc -> V
-        int city = 0;
-        int cities = Integer.MAX_VALUE;
-        // tc = V * (E*logV + V) => V^2 + EVlogV
+        int[][] dist = new int[n][n];
         for (int i = 0; i < n; i++) {
-            // find shortest dist from every node
-            int[] dist = new int[n];
-            Arrays.fill(dist, Integer.MAX_VALUE);
-            pq.add(new PairSmallNeighbour(i, 0));
-            dist[i] = 0;
-
-            // tc - E * logV
-            while (!pq.isEmpty()) {
-                PairSmallNeighbour curP = pq.poll();
-                int cur = curP.node, d = curP.d;
-                for (PairSmallNeighbour adjP : adjList.get(cur)) {
-                    int newD = d + adjP.d;
-                    if (newD <= distanceThreshold && newD < dist[adjP.node]) {
-                        pq.add(new PairSmallNeighbour(adjP.node, newD));
-                        dist[adjP.node] = newD;
-                    }
-                }
-            }
-
-            // calculating city with minCities reachable in threshold
-            // count cities reachable
-            int citiesReachable = 0;
-            for (int j = 0; j < n; j++) {
-                if (i != j && dist[j] != Integer.MAX_VALUE) {
-                    citiesReachable++;
-                }
-            }
-            if (citiesReachable <= cities) {
-                city = i;
-                cities = citiesReachable;
-            }
+            for (int j = 0; j < n; j++)
+                dist[i][j] = Integer.MAX_VALUE;
+        }
+        for (int i = 0; i < m; i++) {
+            int u = edges[i][0];
+            int v = edges[i][1];
+            int wt = edges[i][2];
+            dist[u][v] = wt;
+            dist[v][u] = wt;
         }
 
-        return city;
+        for (int i = 0; i < n; i++)
+            dist[i][i] = 0;
+        for (int k = 0; k < n; k++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (dist[i][k] == Integer.MAX_VALUE ||
+                            dist[k][j] == Integer.MAX_VALUE)
+                        continue;
+                    dist[i][j] = Math.min(dist[i][j], dist[i][k] + dist[k][j]);
+                }
+            }
+        }
+        // dist is ready(floyd warshalls shortest path matrix)
+        int cntCity = n;
+        int cityNo = -1;
+        for (int city = 0; city < n; city++) {
+            int cnt = 0;
+            for (int adjCity = 0; adjCity < n; adjCity++) {
+                if (dist[city][adjCity] <= distanceThreshold)
+                    cnt++;
+            }
+
+            if (cnt <= cntCity) {
+                cntCity = cnt;
+                cityNo = city;
+            }
+        }
+        return cityNo;
+
     }
 
     public static void main(String[] args) {
