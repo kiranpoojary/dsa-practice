@@ -13,7 +13,7 @@ public class ConstructLargeIsland {
     }
 
     public static int constructLargeIsland(int grid[][], int m, int n) {
-        DisjointSet ds = new DisjointSet(n * n);
+        DisjointSet ds = new DisjointSet(m * n);
         // step 2: create disjoint set parents for each
         for (int row = 0; row < m; row++) {
             for (int col = 0; col < n; col++) {
@@ -57,7 +57,7 @@ public class ConstructLargeIsland {
                 mx = Math.max(mx, sizeTotal + 1);
             }
         }
-        for (int cellNo = 0; cellNo < n * n; cellNo++) {
+        for (int cellNo = 0; cellNo < m * n; cellNo++) {
             mx = Math.max(mx, ds.size.get(ds.findUPar(cellNo)));
         }
         return mx;
