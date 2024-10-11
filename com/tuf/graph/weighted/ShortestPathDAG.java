@@ -20,10 +20,10 @@ class shortestPathADG {
     }
 }
 
-class Pair {
+class PairShortestPathDAG {
     int first, second;
 
-    Pair(int _first, int _second) {
+    PairShortestPathDAG(int _first, int _second) {
         this.first = _first;
         this.second = _second;
     }
@@ -31,7 +31,7 @@ class Pair {
 
 // User function Template for Java
 class Solution {
-    private void topoSort(int node, ArrayList<ArrayList<Pair>> adj,
+    private void topoSort(int node, ArrayList<ArrayList<PairShortestPathDAG>> adj,
             int vis[], Stack<Integer> st) {
         vis[node] = 1;
         for (int i = 0; i < adj.get(node).size(); i++) {
@@ -44,9 +44,9 @@ class Solution {
     }
 
     public int[] shortestPath(int N, int M, int[][] edges) {
-        ArrayList<ArrayList<Pair>> adj = new ArrayList<>();
+        ArrayList<ArrayList<PairShortestPathDAG>> adj = new ArrayList<>();
         for (int i = 0; i < N; i++) {
-            ArrayList<Pair> temp = new ArrayList<Pair>();
+            ArrayList<PairShortestPathDAG> temp = new ArrayList<PairShortestPathDAG>();
             adj.add(temp);
         }
         // We create a graph in the form of an adjacency list.
@@ -54,7 +54,7 @@ class Solution {
             int u = edges[i][0];
             int v = edges[i][1];
             int wt = edges[i][2];
-            adj.get(u).add(new Pair(v, wt));
+            adj.get(u).add(new PairShortestPathDAG(v, wt));
         }
         int vis[] = new int[N];
         // Now, we perform topo sort using DFS technique

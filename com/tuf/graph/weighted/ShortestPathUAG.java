@@ -5,11 +5,11 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Pair {
+class PairShortestPathUAG {
     int first;
     int second;
 
-    public Pair(int str, int step) {
+    public PairShortestPathUAG(int str, int step) {
         this.first = str;
         this.second = step;
     }
@@ -22,16 +22,16 @@ public class ShortestPathUAG {
     public static int[] getShortestPath(ArrayList<ArrayList<Integer>> adj, int src) {
         int[] dist = new int[adj.size()];
         Arrays.fill(dist, Integer.MAX_VALUE);
-        Queue<Pair> q = new LinkedList<>();
-        q.add(new Pair(src, 0));
+        Queue<PairShortestPathUAG> q = new LinkedList<>();
+        q.add(new PairShortestPathUAG(src, 0));
         dist[src] = 0;
         while (!q.isEmpty()) {
-            Pair p = q.poll();
+            PairShortestPathUAG p = q.poll();
             int newDist = p.second + 1;
             for (Integer adjN : adj.get(p.first)) {
                 if (newDist < dist[adjN]) {
                     dist[adjN] = newDist;
-                    q.add(new Pair(adjN, newDist));
+                    q.add(new PairShortestPathUAG(adjN, newDist));
                 }
             }
         }
