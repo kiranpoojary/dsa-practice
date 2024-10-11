@@ -20,7 +20,7 @@ public class ConstructLargeIsland {
                 if (grid[row][col] == 0)
                     continue;
                 int adjRows[] = { -1, 0, 1, 0 };
-                int adjCols[] = { 0, -1, 0, 1 };
+                int adjCols[] = { 0, 1, 0, -1 };
                 for (int ind = 0; ind < 4; ind++) {
                     int adjRow = row + adjRows[ind];
                     int adjCol = col + adjCols[ind];
@@ -39,7 +39,7 @@ public class ConstructLargeIsland {
                 if (grid[row][col] == 1)
                     continue;
                 int adjRows[] = { -1, 0, 1, 0 };
-                int adjCols[] = { 0, -1, 0, 1 };
+                int adjCols[] = { 0, 1, 0, -1 };
                 HashSet<Integer> components = new HashSet<>();
                 for (int ind = 0; ind < 4; ind++) {
                     int adjRow = row + adjRows[ind];
