@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class ArticulationPoint {
     // https://www.youtube.com/watch?v=j1QDfU21iZk&list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz&index=181
+    // removing a node in split the graph into more than 1 componennt
     // Time Complexity: O(V+2E), where V = no. of vertices, E = no. of edges. It is
     // because the algorithm is just a simple DFS traversal.
     // Space Complexity: O(3V), where V = no. of vertices. O(3V) is for the three
