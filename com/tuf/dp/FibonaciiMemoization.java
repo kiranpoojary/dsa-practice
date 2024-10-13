@@ -3,9 +3,11 @@ package com.tuf.dp;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Fibonacii {
-
-    public static int fibo(int n, ArrayList<Integer> memo) {
+public class FibonaciiMemoization {
+    // Recursion
+    // TC: O(n)
+    // SC: O(n)+O(n)
+    public static int fibo(int n, ArrayList<Integer> memo) { // fibo at Nth index
         if (n <= 1)
             return n;
 
