@@ -33,13 +33,14 @@ public class Diameter {
         int lh = getTreeDiameter(currNode.left, diameter);
         int rh = getTreeDiameter(currNode.right, diameter);
         diameter[0] = Math.max(diameter[0], (lh + rh));
+        this.maxDiameter = diameter[0]; // for output(u can use function->function call)
         return 1 + Math.max(lh, rh);
-
     }
 
     public static void main(String[] args) {
         Diameter tree = new Diameter();
         tree.initiateStructuredInsertNode(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        System.out.println("Diameter   : " + tree.getTreeDiameter(tree.root, new int[] { tree.maxDiameter }));
+        tree.getTreeDiameter(tree.root, new int[] { tree.maxDiameter });
+        System.out.println("Diameter   : " + tree.maxDiameter);
     }
 }
