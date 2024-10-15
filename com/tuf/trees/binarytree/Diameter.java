@@ -1,5 +1,7 @@
 package com.tuf.trees.binarytree;
 
+import java.util.Arrays;
+
 public class Diameter {
     Node root;
     int maxDiameter = 0;
@@ -25,12 +27,12 @@ public class Diameter {
     }
 
     // diameter is the longest path exist in a tree btw 2 nodes
-    public int getTreeDiameter(Node currNode, int diameter) {
+    public int getTreeDiameter(Node currNode, int[] diameter) {
         if (currNode == null)
             return 0;
         int lh = getTreeDiameter(currNode.left, diameter);
         int rh = getTreeDiameter(currNode.right, diameter);
-        diameter = Math.max(diameter, (lh + rh));
+        diameter[0] = Math.max(diameter[0], (lh + rh));
         return 1 + Math.max(lh, rh);
 
     }
@@ -38,6 +40,6 @@ public class Diameter {
     public static void main(String[] args) {
         Diameter tree = new Diameter();
         tree.initiateStructuredInsertNode(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        System.out.println("Diameter   : " + tree.getTreeDiameter(tree.root, tree.maxDiameter));
+        System.out.println("Diameter   : " + tree.getTreeDiameter(tree.root, new int[] { tree.maxDiameter }));
     }
 }
