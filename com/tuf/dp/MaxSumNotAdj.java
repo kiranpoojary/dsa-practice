@@ -40,10 +40,9 @@ public class MaxSumNotAdj {
         return memo[arr.length - 1];
     }
 
-    public static int maxSumTabulationSpaceOptimized(int[] arr, int[] memo) {
+    public static int maxSumTabulationSpaceOptimized(int[] arr) {
         int prev = arr[0];
         int prev2 = 0;
-        memo[0] = arr[0];
         for (int i = 1; i < arr.length; i++) {
             int pick = arr[i];
             if (i > 1)
@@ -65,9 +64,7 @@ public class MaxSumNotAdj {
         int[] memo2 = new int[arr.length + 1];
         Arrays.fill(memo2, -1);
         System.out.println("Max non adjecent sum tabulation         :" + maxSumTabulation(arr, memo2));
-        int[] memo3 = new int[arr.length + 1];
-        Arrays.fill(memo3, -1);
-        System.out.println("Max non adjecent sum space optimized    :" + maxSumTabulationSpaceOptimized(arr, memo3));
+        System.out.println("Max non adjecent sum space optimized    :" + maxSumTabulationSpaceOptimized(arr));
 
     }
 }
