@@ -3,7 +3,7 @@ package com.tuf.dp;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class FibonaciiMemoization {
+public class FibonacciMemoization {
     // Recursion
     // TC: O(n)
     // SC: O(n)+O(n)

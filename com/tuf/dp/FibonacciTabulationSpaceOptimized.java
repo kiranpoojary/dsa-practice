@@ -3,7 +3,7 @@ package com.tuf.dp;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class FibonaciTabulationSpaceOptimized {
+public class FibonacciTabulationSpaceOptimized {
     // TC: O(n)
     // TC: O(1)
     public static int fibo(int n) { // fibo at Nth index
