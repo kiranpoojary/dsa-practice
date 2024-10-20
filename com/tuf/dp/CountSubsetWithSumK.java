@@ -5,10 +5,22 @@ import java.util.Arrays;
 public class CountSubsetWithSumK {
 
     public static int getSubsetCountRecursive(int[] arr, int idx, int targetSum) {
-        if (targetSum == 0)
-            return 1;
-        if (idx == 0)
-            return (arr[idx] == targetSum) ? 1 : 0; // if both sum == arr[0] then count+1
+        // if (targetSum == 0)
+        // return 1;
+        // if (idx == 0)
+        // return (arr[idx] == targetSum) ? 1 : 0; // if both sum == arr[0] then count+1
+
+        // *************
+        // below code if array element contains 0 as well
+        // fix for arr={0,0,1} and targetSum=1:
+        // cause: {0,1}=1,{0,1}=1,{0,0,1},{1} IS 4
+        if (idx == 0) {
+            if (targetSum == 0 && arr[idx] == 0)
+                return 2;
+            if (targetSum == 0 || targetSum == arr[0])
+                return 1;
+            return 0;
+        }
 
         int notTake = getSubsetCountRecursive(arr, idx - 1, targetSum);
         int take = 0;
@@ -19,14 +31,23 @@ public class CountSubsetWithSumK {
     // *******************
 
     public static int getSubsetCountRecursiveMemo(int[] arr, int idx, int targetSum, int[][] memo) {
-        if (targetSum == 0)
-            return 1;
-        if (idx == 0)
-            return (arr[idx] == targetSum) ? 1 : 0; // if both sum == arr[0] then count+1
-        if (memo[idx][targetSum] != -1) {
-            System.out.println("---------");
-            return memo[idx][targetSum];
+        // if (targetSum == 0)
+        // return 1;
+        // if (idx == 0)
+        // return (arr[idx] == targetSum) ? 1 : 0; // if both sum == arr[0] then count+1
+
+        // *************
+        // below code if array element contains 0 as well
+        // fix for arr={0,0,1} and targetSum=1:
+        // cause: {0,1}=1,{0,1}=1,{0,0,1},{1} IS 4
+        if (idx == 0) {
+            if (targetSum == 0 && arr[idx] == 0)
+                return 2;
+            if (targetSum == 0 || targetSum == arr[0])
+                return 1;
+            return 0;
         }
+
         int notTake = getSubsetCountRecursive(arr, idx - 1, targetSum);
         int take = 0;
         take = getSubsetCountRecursive(arr, idx - 1, targetSum - arr[idx]);
@@ -130,6 +151,8 @@ public class CountSubsetWithSumK {
     public static void main(String[] args) {
         int[] arr = { 1, 2, 2, 3 };
         int K = 3;
+        // int[] arr = { 0, 0, 1 };
+        // int K = 1;
         System.out.println("Count subset with K sum(recu)              :" +
                 getSubsetCountRecursive(arr, arr.length - 1, K));
         System.out.println(
