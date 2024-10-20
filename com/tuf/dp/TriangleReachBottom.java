@@ -4,7 +4,8 @@ import java.sql.Time;
 import java.util.Arrays;
 
 public class TriangleReachBottom {
-
+    // fixed start and variable point(0,0)(any cell of last row)
+    // ************
     // Time Complexity: O(N*N)
     // Space Complexity: O(N*N)
     public static int getMinpathToBottomRecursiveStart(int[][] triangle) {

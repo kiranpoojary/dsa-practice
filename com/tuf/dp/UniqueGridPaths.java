@@ -4,6 +4,7 @@ import java.sql.Time;
 import java.util.Arrays;
 
 public class UniqueGridPaths {
+    // fixed start and end point(0,0)(m-1,n-1)
     // u have a grid(MxN matrix)
     // u have to find all posible unique path from (0,0) to (m-1, n-1)
     // allowed move is only down(⬇️) and right(➡️) direction only
