@@ -2,7 +2,7 @@ package com.tuf.dp;
 
 import java.util.Arrays;
 
-public class SunsetSumIsK {
+public class SubsetSumIsK {
 
     public static boolean hasSubsetTargetSumRecursive(int[] arr, int idx, int target) {
         if (target == 0)
