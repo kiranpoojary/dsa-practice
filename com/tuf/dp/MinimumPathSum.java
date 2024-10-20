@@ -113,11 +113,11 @@ public class MinimumPathSum {
                 if (i == 0 && j == 0) {
                     temp[j] = paths[i][j]; // If we're at the top-left cell, the minimum sum is its value
                 } else {
-                    int up = (i > 0) ? paths[i][j] + prev[j] : Integer.MAX_VALUE; // Value from above if valid cell
+                    int top = (i > 0) ? paths[i][j] + prev[j] : Integer.MAX_VALUE; // Value from above if valid cell
                     int left = (j > 0) ? paths[i][j] + temp[j - 1] : Integer.MAX_VALUE; // Value from the left if valid
                                                                                         // cell
 
-                    temp[j] = Math.min(up, left); // Take the minimum of the two possible paths
+                    temp[j] = Math.min(top, left); // Take the minimum of the two possible paths
                 }
             }
             prev = temp; // Update the previous row with the values of the current row
