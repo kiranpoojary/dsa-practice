@@ -2,7 +2,10 @@ package com.tuf.dp;
 
 public class PartitionEqualSubsetSum {
 
-    // public static boolean hasSumSubsets(int[] arr)
+    // this prog is similary to SubsetSumIsK.java
+    // if total is tot then sunset should have tot/2
+    // so target for SubsetSumIsK.java is tot/2
+    // note: if tot is odd then false
     public static void main(String[] args) {
         int[] arr = { 2, 3, 3, 3, 4, 5 };
         int total = 0;
