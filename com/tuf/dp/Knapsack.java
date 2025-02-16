@@ -57,7 +57,7 @@ public class Knapsack {
 
     // ***************************
 
-    public static int getMaxStealValueRecursiveTabulation(int[] itValues, int[] itWeights, int bagWeight,
+    public static int getMaxStealValueTabulation(int[] itValues, int[] itWeights, int bagWeight,
             int totalItems) {
         // Create a 2D DP array to store the maximum value for each subproblem
         int dp[][] = new int[totalItems][bagWeight + 1];
@@ -89,7 +89,7 @@ public class Knapsack {
 
     // *************************
 
-    public static int getMaxStealValueRecursiveSpaceOpti(int[] itValues, int[] itWeights, int bagWeight,
+    public static int getMaxStealValueSpaceOpti(int[] itValues, int[] itWeights, int bagWeight,
             int totalItems) {
         // Create an array to store the maximum value for each capacity (previous row)
         int prev[] = new int[bagWeight + 1];
@@ -139,8 +139,8 @@ public class Knapsack {
         System.out.println("Max steal value(memo)       :"
                 + getMaxStealValueRecursiveMemoStart(itemsValue, itemsWeight, bagWeight, itemCount - 1));
         System.out.println("Max steal value(tabu)       :"
-                + getMaxStealValueRecursiveTabulation(itemsValue, itemsWeight, bagWeight, itemCount));
+                + getMaxStealValueTabulation(itemsValue, itemsWeight, bagWeight, itemCount));
         System.out.println("Max steal value(spac)       :"
-                + getMaxStealValueRecursiveSpaceOpti(itemsValue, itemsWeight, bagWeight, itemCount));
+                + getMaxStealValueSpaceOpti(itemsValue, itemsWeight, bagWeight, itemCount));
     }
 }
