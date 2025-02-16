@@ -32,12 +32,13 @@ public class MinimumCoins {
             if (memo[currIndex][target] != -1) {
                 return memo[currIndex][target];
             } else {
-                int notTake = 0 + getMinCoinRequiredRecursive(coins, target, currIndex - 1);
+                int notTake = 0 + getMinCoinRequiredRecursiveMemo(coins, target, currIndex - 1, memo);
                 int take = Integer.MAX_VALUE;
                 if (coins[currIndex] <= target) {
-                    take = 1 + getMinCoinRequiredRecursive(coins, target - coins[currIndex], currIndex);
+                    take = 1 + getMinCoinRequiredRecursiveMemo(coins, target - coins[currIndex], currIndex, memo);
                 }
-                return Math.min(take, notTake);
+                memo[currIndex][target] = Math.min(take, notTake);
+                return memo[currIndex][target];
             }
 
         }
@@ -54,8 +55,8 @@ public class MinimumCoins {
     // *******************************************
 
     public static void main(String[] args) {
-        int[] coins = { 1, 2, 3 };
-        int target = 8;
+        int[] coins = { 1, 2, 3, 4 };
+        int target = 22;
         System.out.println(
                 "Min Coins(Recursive)      : " + getMinCoinRequiredRecursive(coins, target, coins.length - 1));
         System.out.println(
