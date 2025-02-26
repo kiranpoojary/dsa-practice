@@ -1,14 +1,10 @@
 package com.tuf.dp;
-// https://www.youtube.com/watch?v=zoilQD1kYSg&list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz&index=199
 
 import java.util.Arrays;
 
-public class CountPartitionsWithGivenDifference {
-    // Same as TargetSum
-
-    static int mod = (int) (Math.pow(10, 9) + 7);
-
-    static int countPartitionsUtil(int ind, int target, int[] arr, int[][] dp) {
+public class TargetSum {
+    // Same as CountPartitionsWithGivenDiff
+    static int countTargetSumUtil(int ind, int target, int[] arr, int[][] dp) {
 
         if (ind == 0) {
             if (target == 0 && arr[0] == 0)
@@ -21,16 +17,16 @@ public class CountPartitionsWithGivenDifference {
         if (dp[ind][target] != -1)
             return dp[ind][target];
 
-        int notTaken = countPartitionsUtil(ind - 1, target, arr, dp);
+        int notTaken = countTargetSumUtil(ind - 1, target, arr, dp);
 
         int taken = 0;
         if (arr[ind] <= target)
-            taken = countPartitionsUtil(ind - 1, target - arr[ind], arr, dp);
+            taken = countTargetSumUtil(ind - 1, target - arr[ind], arr, dp);
 
-        return dp[ind][target] = (notTaken + taken) % mod;
+        return dp[ind][target] = (notTaken + taken);
     }
 
-    static int countPartitions(int d, int[] arr) {
+    static int countTargetSum(int d, int[] arr) {
         int n = arr.length;
         int totSum = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -50,14 +46,14 @@ public class CountPartitionsWithGivenDifference {
         for (int row[] : dp)
             Arrays.fill(row, -1);
 
-        return countPartitionsUtil(n - 1, s2, arr, dp);
+        return countTargetSumUtil(n - 1, s2, arr, dp);
     }
 
     public static void main(String args[]) {
-
+        // add + - to each subset to reach target
         int arr[] = { 5, 2, 6, 4 };
-        int d = 3;
-
-        System.out.println("The number of subsets found are " + countPartitions(d, arr));
+        int d = 5;
+        System.out.println("Number of reached Total counts " + countTargetSum(d, arr));
     }
+
 }
