@@ -53,6 +53,89 @@ public class MinimumCoins {
     }
 
     // *******************************************
+    static int getMinCoinRequiredTabulation(int[] coins, int T) {
+        int n = coins.length;
+
+        // Create a 2D array to store results of subproblems
+        int dp[][] = new int[n][T + 1];
+
+        // Initialize the dp array for the first element of the array
+        for (int i = 0; i <= T; i++) {
+            if (i % coins[0] == 0)
+                dp[0][i] = i / coins[0];
+            else
+                dp[0][i] = (int) Math.pow(10, 9);
+        }
+
+        // Fill the dp array using dynamic programming
+        for (int ind = 1; ind < n; ind++) {
+            for (int target = 0; target <= T; target++) {
+                int notTake = 0 + dp[ind - 1][target];
+                int take = (int) Math.pow(10, 9);
+
+                // If the current element is less than or equal to the target, calculate 'take'
+                if (coins[ind] <= target)
+                    take = 1 + dp[ind][target - coins[ind]];
+
+                // Store the minimum result in the dp array
+                dp[ind][target] = Math.min(notTake, take);
+            }
+        }
+
+        // Get the minimum number of elements needed for the target sum
+        int ans = dp[n - 1][T];
+
+        // If it's not possible to achieve the target sum, return -1
+        if (ans >= (int) Math.pow(10, 9))
+            return -1;
+        return ans;
+    }
+
+    // *******************************************
+
+    static int getMinCoinRequiredTabSpaceOpti(int[] coins, int T) {
+        int n = coins.length;
+
+        // Create two arrays to store results of subproblems: prev and cur
+        int prev[] = new int[T + 1];
+        int cur[] = new int[T + 1];
+
+        // Initialize the prev array for the first element of the array
+        for (int i = 0; i <= T; i++) {
+            if (i % coins[0] == 0)
+                prev[i] = i / coins[0];
+            else
+                prev[i] = (int) Math.pow(10, 9);
+        }
+
+        // Fill the cur array using dynamic programming
+        for (int ind = 1; ind < n; ind++) {
+            for (int target = 0; target <= T; target++) {
+                int notTake = 0 + prev[target];
+                int take = (int) Math.pow(10, 9);
+
+                // If the current element is less than or equal to the target, calculate 'take'
+                if (coins[ind] <= target)
+                    take = 1 + cur[target - coins[ind]];
+
+                // Store the minimum result in the cur array
+                cur[target] = Math.min(notTake, take);
+            }
+
+            // Update prev with cur for the next iteration
+            prev = cur.clone();
+        }
+
+        // Get the minimum number of elements needed for the target sum
+        int ans = prev[T];
+
+        // If it's not possible to achieve the target sum, return -1
+        if (ans >= (int) Math.pow(10, 9))
+            return -1;
+        return ans;
+    }
+
+    // *******************************************
 
     public static void main(String[] args) {
         int[] coins = { 1, 2, 3, 4 };
@@ -61,5 +144,8 @@ public class MinimumCoins {
                 "Min Coins(Recursive)      : " + getMinCoinRequiredRecursive(coins, target, coins.length - 1));
         System.out.println(
                 "Min Coins(Recursive-memo) : " + getMinCoinRequiredRecursiveMemoStart(coins, target));
+        System.out.println("Min Coins(Tab)            : " + getMinCoinRequiredTabulation(coins, target));
+        System.out.println("Min Coins(Tab-spaceOpti)  : " + getMinCoinRequiredTabulation(coins, target));
+
     }
 }
