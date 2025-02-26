@@ -12,7 +12,7 @@ public class Knapsack {
                 return 0;
         }
         int notTake = 0 + getMaxStealValueRecursive(itValues, itWeights, bagWeight, currItemIndex - 1);
-        int take = Integer.MIN_VALUE;
+        int take = Integer.MIN_VALUE; //// MIN when max required
         if (itWeights[currItemIndex] <= bagWeight) {
             take = itValues[currItemIndex]
                     + getMaxStealValueRecursive(itValues, itWeights, bagWeight - itWeights[currItemIndex],
@@ -125,7 +125,7 @@ public class Knapsack {
     public static void main(String[] args) {
         int[] itemsValue = { 30, 40, 60 };
         int[] itemsWeight = { 3, 2, 5 };
-        int bagWeight = 6;
+        int bagWeight = 7;
         int itemCount = itemsWeight.length;
 
         // for memo entry check

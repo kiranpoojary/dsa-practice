@@ -10,10 +10,10 @@ public class MinimumCoins {
             if (target % coins[currIndex] == 0)
                 return target / coins[currIndex];
             else
-                return Integer.MAX_VALUE;
+                return (int) 1e9; // use 1e9 when code has 1+ to avoid int overflow
         } else {
             int notTake = 0 + getMinCoinRequiredRecursive(coins, target, currIndex - 1);
-            int take = Integer.MAX_VALUE;
+            int take = Integer.MAX_VALUE; // MAX when min required
             if (coins[currIndex] <= target) {
                 take = 1 + getMinCoinRequiredRecursive(coins, target - coins[currIndex], currIndex);
             }
